@@ -6,6 +6,7 @@ const ExportExcel = () => {
   const { scrapedData, links } = usePDF_Context();
   const [showTable, setShowTable] = useState(false);
   const tableRef = useRef(null);
+  console.log("scrapedData==>", scrapedData);
   let tableData = [
     {
       textTitle: "Victory Bar & Restaurant",
@@ -119,7 +120,7 @@ const ExportExcel = () => {
 
   const genTable = (arrObj) => {
     console.log("table transform initiated");
-    console.log("arrObj==>", tableData);
+    console.log("arrObj==>", arrObj);
     // Generate the table content here.
     return (
       <table ref={tableRef}>

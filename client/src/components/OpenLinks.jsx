@@ -5,7 +5,7 @@ const Generate_Ans = () => {
   const { links, updateScrapedData } = usePDF_Context();
 
   function removeDuplicateElements(array) {
-    const uniqueArray = array.filter((item, index, self) => {
+    const uniqueArray = array?.filter((item, index, self) => {
       return (
         index ===
         self.findIndex(
@@ -34,8 +34,7 @@ const Generate_Ans = () => {
       .then((data) => {
         console.log("Response Data:", data);
 
-        const uniqueData = removeDuplicateElements(data["uniqueExtractedData"]);
-        updateScrapedData(uniqueData); // Log the parsed data
+        updateScrapedData(data?.results); // Log the parsed data
         // If you want to update state with the data, you can call your updateScrapedData function here.
       })
       .catch((error) => {
