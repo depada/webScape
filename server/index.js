@@ -137,11 +137,11 @@ app.post("/open-links", async (req, res) => {
 
     // for (const data of finData) {
     //   if (data.length > 0) {
-    //     results.push(data[0]);
+    //     results.push(data);
     //   }
     // }
 
-    res.json({ results });
+    res.json({ finData });
     // await browser.close();
     // res.json({ results });
   } catch (error) {

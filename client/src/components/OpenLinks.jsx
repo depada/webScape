@@ -33,8 +33,13 @@ const Generate_Ans = () => {
       .then((response) => response.json()) // Parse the response as JSON
       .then((data) => {
         console.log("Response Data:", data);
+        const flattenedArray =
+          data &&
+          data.finData.reduce((accumulator, currentArray) => {
+            return accumulator.concat(currentArray);
+          }, []);
 
-        updateScrapedData(data?.results); // Log the parsed data
+        updateScrapedData(flattenedArray); // Log the parsed data
         // If you want to update state with the data, you can call your updateScrapedData function here.
       })
       .catch((error) => {
